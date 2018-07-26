@@ -1,0 +1,15 @@
+<div class="container" *ngIf="movies!==undefined">
+  <div class="row">
+      <input type="text" class="form-control" [(ngModel)]="rating">
+  </div>
+  <div class="row">
+    <div class="card col-md-3" *ngFor="let movie of movies">
+     <!-- <movie-card [currentMovie]="movie" (onSelect)="getChildInfo($event)"></movie-card> -->
+     <a routerLink="/movies/{{movie.id}}">
+     <img class="card-img-top" *ngIf="movie.poster_path!=undefined" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
+    </a>
+    </div>    
+  </div>
+  <button (click)="getInfo()"></button>
+</div>
+<router-outlet></router-outlet>

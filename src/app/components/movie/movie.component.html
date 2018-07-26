@@ -1,0 +1,13 @@
+<img class="card-img-top" *ngIf="movie.poster_path!=undefined" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
+<img class="card-img-top" *ngIf="movie.poster_path==undefined" src="https://image.tmdb.org/t/p/w500/rDeGK6FIUfVcXmuBdEORPAGPMNg.jpg" alt="Card image cap">
+<div class="card-body">
+  <!-- <input type="text" [(ngModel)]="movie.title"> -->
+  <h5 class="card-title">{{movie.title| uppercase}}</h5>
+  <!-- <p class="card-text" [ngClass]="movie.overview.length>200?'large-text':'small-text'">{{movie.overview}}</p> -->
+  <p class="card-text" [ngStyle]="movie.overview.length>200?{'font-size':'12px'}:{'font-size':'16px'}">{{movie.overview|textSlicer:150}}</p>
+  <p>{{movie.popularity|number:"3.2-2"}}</p>
+  <p>{{movie.release_date|date:"shortDate"}}</p>
+  <a href="#" class="btn btn-primary" (click)="movieClick(movie)">Go somewhere</a>
+  <a href="#" class="btn btn-primary" (click)="addMovie(movie)">Favorite</a>
+  <!-- <a href="#" class="btn btn-success" (click)="updateSubject(movie.title)">Inform subscribers</a> -->
+</div>

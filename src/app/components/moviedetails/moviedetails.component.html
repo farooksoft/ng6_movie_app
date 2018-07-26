@@ -1,0 +1,19 @@
+<div class="container" *ngIf="movie">
+  <div class="row">
+    <div class="col-md-6">
+        <img class="card-img-top" *ngIf="movie.poster_path!=undefined" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
+        <img class="card-img-top" *ngIf="movie.poster_path==undefined" src="https://image.tmdb.org/t/p/w500/rDeGK6FIUfVcXmuBdEORPAGPMNg.jpg" alt="Card image cap">
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">{{movie.title| uppercase}}</h5>
+              <p class="card-text">{{movie.overview}}</p>
+              <p>{{movie.release_date|date:"shortDate"}}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

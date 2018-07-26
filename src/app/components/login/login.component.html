@@ -1,0 +1,32 @@
+<div class="container-fluid bg-light py-3">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card card-body login-form">
+          <h3 class="text-center mb-4" id="title">Login</h3>
+            <fieldset>
+              <form [formGroup]='frmGroup' (ngSubmit)="login(frmGroup)">  
+                <div class="form-group has-error">
+                  <input class="form-control input-lg" placeholder="E-mail Address" name="email" type="text" formControlName="email" id="email">
+                  <div *ngIf="frmGroup.controls['email'].touched && !frmGroup.controls['email'].valid">  
+                      <span *ngIf="frmGroup.controls['email'].hasError('required') ">  
+                        Email ID is needed  
+                      </span>  
+                      <span *ngIf="frmGroup.controls['email'].hasError('email') ">  
+                        Invalid Email ID  
+                      </span>  
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                  <input class="form-control input-lg" placeholder="Password" name="password" value="" type="password" formControlName="password" id="password">
+                </div>
+                <input class="btn btn-lg btn-primary btn-block" value="Sign In" type="submit" id="btnSubmit">
+              </form> 
+            </fieldset>
+            <div>
+              New user <a routerLink="/register">Register Here</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
